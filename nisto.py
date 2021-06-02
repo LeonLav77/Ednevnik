@@ -5,8 +5,8 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.keys import Keys
-zakljucniIzPredmeta = []
 def start(myUsername,myPassword):
+    zakljucniIzPredmeta = []
     PATH = "C:\Program Files (x86)\chromedriver.exe" 
     driver = webdriver.Chrome(PATH)
     wait = WebDriverWait(driver, 10)
@@ -27,6 +27,7 @@ def start(myUsername,myPassword):
         dobijOcjene()
 
     def dobijOcjene():
+        
         hmm = driver.find_elements_by_class_name('flex-table')
         imePredmeta = driver.find_elements_by_xpath('//*[@id="page-wrapper"]/div[4]/div[1]/div[1]/span')
 
@@ -57,7 +58,7 @@ def start(myUsername,myPassword):
     brojOcjena = len(blankL)
     print(brojOcjena)
     driver.quit()
-    return zakljucniIzPredmeta
+    return [zakljucniIzPredmeta]
 @app.route('/')
 def hello_world():
     return render_template("index.html")
@@ -68,8 +69,10 @@ def nibba():
     username = request.form.get('mail') #dela
     password = request.form.get('password') #dela
     gae = start(username,password)
-    return render_template("index2.html", username=gae)
+    gaee = gae[0]
+    return render_template("index2.html", username=gaee)
 
 if __name__ == '__main__':
     app.run()
+
 
