@@ -1,4 +1,6 @@
 <h1>YEYE ASS HAIRCUT</h1>
-{% for i in username%}
-<p>{{ i }} </p>
+{% for dict_item in username %}
+   {% for key, value in dict_item.items() %}
+      <h2>{{key}} : {{value}}</h2>
+   {% endfor %}
 {% endfor %}
