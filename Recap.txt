@@ -1,0 +1,9 @@
+What I do not like about this project:
+It is rushed so it has no UI elements
+There are many dependencies for a small project
+Scraping is slow
+
+What I like about this project:
+There are many opportunities to upgrade this project(ie. data science it)
+It was very easy to make even though I had no knowledge of the library
+It works
